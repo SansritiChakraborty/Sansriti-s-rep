@@ -1,6 +1,6 @@
 Brain Tumor Detection Using Convolutional Neural Networks: A Deep Learning Approach
 
-Problem Statement
+Problem Statement:
 Brain tumors affect approximately 30 out of 100,000 people globally, with early detection being critical for survival1. Manual MRI interpretation by radiologists faces challenges including:
 
 Time constraints: Average analysis time of 15--30 minutes per scan
