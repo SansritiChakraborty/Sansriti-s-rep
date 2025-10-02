@@ -10,11 +10,7 @@ Input
 
 The pipeline requires the following command-line parameters:
 
-```bash
-nextflow run main.nf \
-  --samplesheet 'samplesheet.csv' \
-  --outdir 'results'
-```
+
 
 | Parameter       | Type   | Description                                                          |
 | --------------- | ------ | -------------------------------------------------------------------- |
@@ -33,7 +29,7 @@ The `samplesheet.csv` should have at least the following columns:
 | `vcf_path`         | Full or relative path to the input VCF file       |
 | `vcf_tumor_sample` | Tumor sample name as it appears in the VCF header |
 
-
+Input file format:
 
 ```csv
 sample_id,vcf_path,vcf_tumor_sample
@@ -68,22 +64,14 @@ nextflow run main.nf -profile docker \
   --outdir 'results'
 ```
 
-Required Tools / Versions
 
-* Nextflow v25.04.7
-* Docker (e.g., `ensemblorg/ensembl-vep:release_115`)
-* WSL2 / Linux environment (if on Windows)
-* VEP (inside Docker)
 
-Troubleshooting
+Errors shown:
 
-* Permission denied in `.command.sh`: Ensure Docker mounts are writable and `NXF_DOCKER_EXTRA_ARGS="-u $(id -u):$(id -g)"` is set.
+* Permission denied in `.command.sh`
+* Unable to figure out the root cause
 
-Future Improvements
 
-* Support multi-sample VCFs
-* Add optional transcript-level expression annotation
-* Include automated testing via `nf-test`
 
 
 
@@ -94,7 +82,7 @@ Workflow Diagram
 flowchart TB
     subgraph "Nextflow VEP Pipeline"
         A["Samplesheet CSV"] --> B["VCF files"]
-        B --> C["VEP Annotation (Docker/Singularity)"]
+        B --> C["VEP Annotation (Docker)"]
         C --> D["VEP-Annotated VCFs"]
         D --> E["Cleaned CSV / Summary files"]
     end
