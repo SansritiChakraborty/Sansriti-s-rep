@@ -8,20 +8,7 @@ The pipeline takes one or more VCF files as input and produces VEP-annotated VCF
 
 Input
 
-The pipeline requires the following command-line parameters:
-
-
-
-| Parameter       | Type   | Description                                                          |
-| --------------- | ------ | -------------------------------------------------------------------- |
-| `--samplesheet` | file   | CSV file containing sample metadata and VCF paths (see format below) |
-| `--outdir`      | string | Directory to store all outputs                                       |
-
----
-
-Samplesheet Format
-
-The `samplesheet.csv` should have at least the following columns:
+The `samplesheet.csv` had the following columns:
 
 | Column             | Description                                       |
 | ------------------ | ------------------------------------------------- |
@@ -63,18 +50,6 @@ nextflow run main.nf -profile docker \
   --samplesheet 'samplesheet.csv' \
   --outdir 'results'
 ```
-
-
-
-Errors shown:
-
-* Permission denied in `.command.sh`
-* Unable to figure out the root cause
-
-
-
----
-
  Errors made and how they were corrected:
 
 
@@ -116,6 +91,10 @@ nextflow run ../ensembl-vep-release-115/main.nf \
     -with-docker ensemblorg/ensembl-vep:release_115 \
     -resume
 ```
+Errors shown:
+
+* Permission denied in `.command.sh`
+* 
 
 * Attempted to force correct Docker image (`release_115`) to fix VEP not found.
 
@@ -129,6 +108,8 @@ nextflow run ../ensembl-vep-release-115/main.nf \
 <img width="1885" height="929" alt="Screenshot 2025-09-30 201725" src="https://github.com/user-attachments/assets/5d34d767-908b-4071-87f4-5c0aac90f87c" />
 <img width="1919" height="945" alt="Screenshot 2025-10-01 145331" src="https://github.com/user-attachments/assets/a25423fa-6311-4672-b122-24884bd05a8a" />
 <img width="1626" height="853" alt="Screenshot 2025-10-02 145509" src="https://github.com/user-attachments/assets/7cacbb72-4201-4762-9853-a45b57010209" />
+<img width="1714" height="807" alt="Screenshot 2025-10-02 144445" src="https://github.com/user-attachments/assets/711099b2-f801-4ab4-bf68-36b4f4e489d9" />
+<img width="1721" height="870" alt="Screenshot 2025-10-02 144025" src="https://github.com/user-attachments/assets/d6e71cdc-070f-475a-98d4-a4f9441232f9" />
 <img width="1895" height="725" alt="Screenshot 2025-10-02 154051" src="https://github.com/user-attachments/assets/d5aea540-0a19-44e8-909a-08b7601cc04d" />
 
 
