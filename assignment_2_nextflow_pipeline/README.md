@@ -73,6 +73,58 @@ Errors shown:
 
 
 
+---
+
+ Errors made and how they were corrected:
+
+
+1. Permission fix
+
+```bash
+chmod +x ./*
+```
+
+* Attempted to make scripts executable.
+
+2. Running manually in work dir
+
+```bash
+bash .command.run
+```
+
+* Revealed the actual error: `vep: command not found`.
+
+3. Checking VEP input files
+
+```bash
+ls -l /home/mimi/nextflow-vep/input_vcfs/test*.vcf
+```
+
+* Verified VCF files exist and have correct permissions.
+
+4. Navigating and cleaning folders
+
+* Tried moving `nextflow_project` to a backup folder.
+* Checked folder paths using `find` and `ls -l`.
+
+5. Running Nextflow with Docker
+
+```bash
+nextflow run ../ensembl-vep-release-115/main.nf \
+    --samplesheet samplesheet.csv \
+    --outdir results \
+    -with-docker ensemblorg/ensembl-vep:release_115 \
+    -resume
+```
+
+* Attempted to force correct Docker image (`release_115`) to fix VEP not found.
+
+---<img width="1697" height="859" alt="Screenshot 2025-10-02 150443" src="https://github.com/user-attachments/assets/1a767bc9-5e7b-4133-851f-42c0e5cf2e27" />
+
+
+
+
+
 
 
 ---
