@@ -1,4 +1,4 @@
-**VEP Annotation Nextflow Pipeline**
+** VEP Annotation Nextflow Pipeline**
 
 This Nextflow pipeline annotates VCF files using Ensembl VEP (Variant Effect Predictor) and Docker. It is designed for running in a reproducible, containerized environment using nf-core standards.
 
@@ -8,7 +8,24 @@ The pipeline takes one or more VCF files as input and produces VEP-annotated VCF
 
 Input
 
-The `samplesheet.csv` had the following columns:
+The pipeline requires the following command-line parameters:
+
+```bash
+nextflow run main.nf \
+  --samplesheet 'samplesheet.csv' \
+  --outdir 'results'
+```
+
+| Parameter       | Type   | Description                                                          |
+| --------------- | ------ | -------------------------------------------------------------------- |
+| `--samplesheet` | file   | CSV file containing sample metadata and VCF paths (see format below) |
+| `--outdir`      | string | Directory to store all outputs                                       |
+
+---
+
+Samplesheet Format
+
+The `samplesheet.csv` should have at least the following columns:
 
 | Column             | Description                                       |
 | ------------------ | ------------------------------------------------- |
@@ -16,7 +33,7 @@ The `samplesheet.csv` had the following columns:
 | `vcf_path`         | Full or relative path to the input VCF file       |
 | `vcf_tumor_sample` | Tumor sample name as it appears in the VCF header |
 
-Input file format:
+
 
 ```csv
 sample_id,vcf_path,vcf_tumor_sample
@@ -39,19 +56,7 @@ results/
 ├── clean_vcfs/             # Processed VCFs and CSV summaries
 ```
 
---While developing and testing the pipeline:
-
-Verified that Nextflow DSL2 correctly parses the samplesheet and spawns annotation jobs.
-
-Confirmed Docker integration with the official VEP image.
-
-Debugged permission errors (.command.sh: Permission denied) in WSL2 caused by mount options.
-
-Tried chmod +x in work directories.
-
-
-
-
+---
 
 Running the Pipeline
 
@@ -112,25 +117,14 @@ Confirmed job submission via Nextflow and container execution attempts.
 
 Errors remaining:
 
-* Permission denied in `.command.sh`
-* 
+* Permission denied in `.command.sh`: Ensure Docker mounts are writable and `NXF_DOCKER_EXTRA_ARGS="-u $(id -u):$(id -g)"` is set.
 
-* Attempted to force correct Docker image (`release_115`) to fix VEP not found.
+Future Improvements
 
----<img width="1902" height="964" alt="Screenshot 2025-10-02 153757" src="https://github.com/user-attachments/assets/38923e14-7b95-4716-a414-c767d75d6740" />
-<img width="1904" height="957" alt="Screenshot 2025-10-02 150520" src="https://github.com/user-attachments/assets/7f9a9223-662f-4a21-beac-f3450215ccea" />
-<img width="1904" height="165" alt="Screenshot 2025-10-02 150814" src="https://github.com/user-attachments/assets/4bfa7061-a066-48e6-8eab-f1f928c83c57" />
-<img width="1918" height="957" alt="Screenshot 2025-09-30 201417" src="https://github.com/user-attachments/assets/8fb1d398-1ad6-4363-b118-0624a46115ef" />
-<img width="1915" height="939" alt="Screenshot 2025-09-30 201634" src="https://github.com/user-attachments/assets/3978ce96-b2a3-482c-9ceb-83b06b2babcf" />
-<img width="1882" height="244" alt="Screenshot 2025-10-01 145253" src="https://github.com/user-attachments/assets/a4912fd4-fd52-4f37-a588-e028b695f813" />
-<img width="1899" height="837" alt="Screenshot 2025-09-30 201814" src="https://github.com/user-attachments/assets/61125ab2-0560-4b92-8ea4-3fc34d5e42b2" />
-<img width="1885" height="929" alt="Screenshot 2025-09-30 201725" src="https://github.com/user-attachments/assets/5d34d767-908b-4071-87f4-5c0aac90f87c" />
-<img width="1919" height="945" alt="Screenshot 2025-10-01 145331" src="https://github.com/user-attachments/assets/a25423fa-6311-4672-b122-24884bd05a8a" />
-<img width="1697" height="859" alt="Screenshot 2025-10-02 150443" src="https://github.com/user-attachments/assets/2d0b0242-87d7-4fa3-883c-990635a237ea" />
-<img width="1626" height="853" alt="Screenshot 2025-10-02 145509" src="https://github.com/user-attachments/assets/7cacbb72-4201-4762-9853-a45b57010209" />
-<img width="1714" height="807" alt="Screenshot 2025-10-02 144445" src="https://github.com/user-attachments/assets/711099b2-f801-4ab4-bf68-36b4f4e489d9" />
-<img width="1721" height="870" alt="Screenshot 2025-10-02 144025" src="https://github.com/user-attachments/assets/d6e71cdc-070f-475a-98d4-a4f9441232f9" />
-<img width="1895" height="725" alt="Screenshot 2025-10-02 154051" src="https://github.com/user-attachments/assets/d5aea540-0a19-44e8-909a-08b7601cc04d" />
+* Support multi-sample VCFs
+* Add optional transcript-level expression annotation
+* Include automated testing via `nf-test`
+
 
 
 ---
