@@ -20,15 +20,15 @@ Python Analysis
 
 A Python script (`annotate_vcf.ipynb`) was developed to parse and analyze annotated VCFs.
 
-The script performs:
+The script performs the following:
 
-* a.Count total variants in annotated VCF
-* b.Count unique genes
-* c.Count unique traits/disease conditions
-* d.List pathogenic/likely pathogenic variants
+* a.Counts total variants in annotated VCF
+* b.Counts unique genes
+* c.Counts unique traits/disease conditions
+* d.Lists pathogenic/likely pathogenic variants
 * e.Per chromosome:
 
-  * Count total variations
+  * Counts total variations
   * Count SNP IDs
   * Identify variants without SNP IDs
   * Generate a comprehensive log file (`vcf_analysis_log.txt`) with all results
@@ -155,8 +155,4 @@ print("Unique Genes:", len(results["unique_genes"]))
 print("Unique Traits:", len(results["unique_traits"]))
 ```
 
-```bash
-git add README.md
-git commit -m "Add VEP pipeline flowchart and executed commands"
-git push
-````
+
