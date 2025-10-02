@@ -39,7 +39,19 @@ results/
 ├── clean_vcfs/             # Processed VCFs and CSV summaries
 ```
 
----
+--While developing and testing the pipeline:
+
+Verified that Nextflow DSL2 correctly parses the samplesheet and spawns annotation jobs.
+
+Confirmed Docker integration with the official VEP image.
+
+Debugged permission errors (.command.sh: Permission denied) in WSL2 caused by mount options.
+
+Tried chmod +x in work directories.
+
+
+
+
 
 Running the Pipeline
 
@@ -91,7 +103,14 @@ nextflow run ../ensembl-vep-release-115/main.nf \
     -with-docker ensemblorg/ensembl-vep:release_115 \
     -resume
 ```
-Errors shown:
+6. Tested forcing script execution with:
+
+process.shell = ['/bin/bash', '-euo', 'pipefail']
+
+
+Confirmed job submission via Nextflow and container execution attempts.
+
+Errors remaining:
 
 * Permission denied in `.command.sh`
 * 
@@ -107,6 +126,7 @@ Errors shown:
 <img width="1899" height="837" alt="Screenshot 2025-09-30 201814" src="https://github.com/user-attachments/assets/61125ab2-0560-4b92-8ea4-3fc34d5e42b2" />
 <img width="1885" height="929" alt="Screenshot 2025-09-30 201725" src="https://github.com/user-attachments/assets/5d34d767-908b-4071-87f4-5c0aac90f87c" />
 <img width="1919" height="945" alt="Screenshot 2025-10-01 145331" src="https://github.com/user-attachments/assets/a25423fa-6311-4672-b122-24884bd05a8a" />
+<img width="1697" height="859" alt="Screenshot 2025-10-02 150443" src="https://github.com/user-attachments/assets/2d0b0242-87d7-4fa3-883c-990635a237ea" />
 <img width="1626" height="853" alt="Screenshot 2025-10-02 145509" src="https://github.com/user-attachments/assets/7cacbb72-4201-4762-9853-a45b57010209" />
 <img width="1714" height="807" alt="Screenshot 2025-10-02 144445" src="https://github.com/user-attachments/assets/711099b2-f801-4ab4-bf68-36b4f4e489d9" />
 <img width="1721" height="870" alt="Screenshot 2025-10-02 144025" src="https://github.com/user-attachments/assets/d6e71cdc-070f-475a-98d4-a4f9441232f9" />
