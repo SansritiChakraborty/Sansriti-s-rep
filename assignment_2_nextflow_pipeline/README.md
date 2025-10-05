@@ -1,4 +1,4 @@
-** VEP Annotation Nextflow Pipeline**
+**VEP Annotation Nextflow Pipeline**
 
 This Nextflow pipeline annotates VCF files using Ensembl VEP (Variant Effect Predictor) and Docker. It is designed for running in a reproducible, containerized environment using nf-core standards.
 
