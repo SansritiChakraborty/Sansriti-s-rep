@@ -1,7 +1,7 @@
 # Genomics Annotation with VEP
 
 Assignment 1: Genomics Annotation with VEP
-Introduction
+
 
 This assignment demonstrates how to annotate and analyze genetic variants from VCF files. We combine:
 VEP annotation for biological context and Python analysis to summarize and interpret results
