@@ -1,0 +1,214 @@
+###For prompt type 1
+
+📊 Dataset Summary (Heart Disease UCI)
+
+The dataset contains 920 patient records with 16 variables, capturing demographic, clinical, and diagnostic information related to heart disease. Each row represents an individual patient, and the target variable (num) indicates the presence and severity of heart disease.
+
+Key variable groups include:
+
+Demographics: age, sex
+
+Clinical measurements: resting blood pressure (trestbps), cholesterol (chol), fasting blood sugar (fbs), maximum heart rate (thalch)
+
+Symptoms & test results: chest pain type (cp), exercise-induced angina (exang), ECG results (restecg), ST depression (oldpeak), slope of ST segment (slope)
+
+Imaging/diagnostics: number of major vessels (ca), thalassemia status (thal)
+
+The target variable num ranges from 0 to 4, where:
+
+0 indicates no heart disease
+
+1–4 indicate increasing severity of heart disease
+
+🔍 Key Patterns Identified
+1️⃣ Age and Heart Disease
+
+Most patients fall in the middle-aged to elderly range (40–70 years).
+
+Higher heart disease severity is more frequently observed among older patients, indicating age as a strong risk factor.
+
+2️⃣ Sex Differences
+
+The dataset is male-dominated, and heart disease cases appear more frequently in male patients than female patients.
+
+This suggests a potential sex-based risk disparity, consistent with known clinical trends.
+
+3️⃣ Chest Pain Type is Highly Informative
+
+Patients with asymptomatic chest pain show a higher prevalence of heart disease.
+
+Typical and atypical angina are more commonly associated with lower disease severity.
+
+4️⃣ Exercise-Induced Indicators
+
+Exercise-induced angina (exang = True) is more common among patients with heart disease.
+
+Higher ST depression (oldpeak) values tend to correlate with increased disease severity.
+
+5️⃣ Cardiac Performance Metrics
+
+Lower maximum heart rate (thalch) is often observed in patients with heart disease.
+
+Abnormal ECG results and flat/downsloping ST segments appear more frequently in diseased patients.
+
+6️⃣ Diagnostic Imaging Signals
+
+A higher number of affected vessels (ca) and abnormal thalassemia findings are associated with increased heart disease severity.
+
+These variables are strong predictors and clinically meaningful.
+
+⚠️ Limitations Observed
+
+Some variables contain missing or incomplete values, particularly in diagnostic fields.
+
+The dataset combines records from different sources (e.g., Cleveland), which may introduce heterogeneity.
+
+🧠 Overall Insight
+
+The dataset shows that age, sex, chest pain type, exercise-induced indicators, and diagnostic imaging results are key factors associated with heart disease presence and severity. Structured clinical and stress-test variables provide strong signals for disease prediction, while demographic variables help contextualize risk.
+
+
+
+###For prompt type 2:
+
+Role: Healthcare Data Analyst
+
+Below is a role-based analytical interpretation of the Heart Disease UCI dataset, focused on clinically meaningful insights. This is suitable to save as your
+outputs/role_prompt_output.md.
+
+🏥 Clinical Analysis & Key Insights
+Dataset Overview
+
+The dataset includes 920 patients with demographic, clinical, exercise-test, and diagnostic features related to cardiovascular health. The outcome variable (num) reflects the presence and severity of heart disease, ranging from no disease to advanced disease states.
+
+🩺 Key Clinical Insights
+1️⃣ Age Is a Major Risk Factor
+
+Patients with heart disease are predominantly in the older age groups (50–70 years).
+
+Disease severity increases with age, supporting age as a non-modifiable but critical risk determinant in cardiovascular assessment.
+
+Clinical relevance:
+Older patients presenting with cardiac symptoms should be prioritized for diagnostic testing.
+
+2️⃣ Male Patients Show Higher Disease Burden
+
+Male patients represent a larger proportion of heart disease cases.
+
+Females appear more frequently in the no-disease category.
+
+Clinical relevance:
+Sex-specific risk stratification is important; males may benefit from earlier screening and aggressive risk management.
+
+3️⃣ Chest Pain Type Strongly Differentiates Risk
+
+Asymptomatic chest pain is highly associated with the presence of heart disease.
+
+Patients with typical or atypical angina are more often found in lower disease categories.
+
+Clinical relevance:
+Absence of pain does not imply absence of disease — asymptomatic patients may still carry high cardiovascular risk.
+
+4️⃣ Exercise Stress Test Indicators Are Highly Informative
+
+Exercise-induced angina (exang = True) is strongly linked to heart disease.
+
+Higher ST depression (oldpeak) values are seen in patients with more severe disease.
+
+Flat or downsloping ST segments are more common among diseased individuals.
+
+Clinical relevance:
+Stress-test abnormalities are key markers of myocardial ischemia and should heavily influence diagnostic decisions.
+
+5️⃣ Reduced Cardiac Performance in Diseased Patients
+
+Patients with heart disease often exhibit lower maximum heart rate (thalch) during exercise.
+
+This suggests compromised cardiac response to physical stress.
+
+Clinical relevance:
+Reduced exercise tolerance is an important functional indicator of underlying cardiac pathology.
+
+6️⃣ Imaging and Diagnostic Variables Are Strong Predictors
+
+A higher number of affected vessels (ca) correlates with increased disease severity.
+
+Abnormal thalassemia test results (fixed or reversible defects) are significantly associated with heart disease.
+
+Clinical relevance:
+These features reflect structural and perfusion abnormalities and are crucial for confirming diagnosis and staging severity.
+
+⚠️ Data Considerations
+
+Some diagnostic fields contain missing values, which may affect clinical inference.
+
+The dataset is observational and should be interpreted in conjunction with clinical judgment rather than in isolation.
+
+🧠 Summary for Clinical Decision Support
+
+Heart disease in this dataset is most strongly associated with:
+
+Older age
+
+Male sex
+
+Asymptomatic chest pain
+
+Exercise-induced ischemic indicators
+
+Abnormal imaging and vessel involvement
+
+These findings align well with established cardiovascular risk models and highlight the importance of combining demographic, functional, and diagnostic data for accurate clinical risk assessment.
+
+
+###For prompt type 3:
+**Role: Healthcare Data Analyst**
+
+Below is a **structured analysis** of the Heart Disease UCI dataset, written exactly in the format you specified.
+This is ideal to save as **`outputs/structured_prompt_output.md`** for your project.
+
+---
+
+## 📊 Dataset Summary
+
+The dataset contains **920 patient records** with **16 clinical and demographic variables** related to cardiovascular health. It includes patient age, sex, chest pain type, blood pressure, cholesterol levels, exercise test results, ECG findings, and diagnostic indicators such as vessel involvement and thalassemia status.
+
+The target variable (`num`) represents **heart disease presence and severity**, where:
+
+* `0` = no heart disease
+* `1–4` = increasing severity of heart disease
+
+---
+
+## 📈 Key Trends
+
+* **Age:** Higher prevalence and severity of heart disease are observed in patients aged **50–70 years**.
+* **Sex:** Male patients show a significantly higher burden of heart disease compared to females.
+* **Chest pain type:** Asymptomatic chest pain is strongly associated with heart disease, while typical and atypical angina are more common in patients without severe disease.
+* **Exercise-related indicators:**
+
+  * Exercise-induced angina is more frequent in patients with heart disease.
+  * Higher ST depression (`oldpeak`) and flat/downsloping ST segments are linked to disease presence.
+* **Cardiac performance:** Patients with heart disease tend to have **lower maximum heart rate** during exercise.
+* **Diagnostic features:** Increased number of affected vessels (`ca`) and abnormal thalassemia findings correlate with higher disease severity.
+
+---
+
+## 🩺 Clinical Relevance
+
+* **Risk stratification:** Age and sex remain critical baseline risk factors for cardiovascular disease screening.
+* **Silent disease risk:** Asymptomatic chest pain should not be overlooked, as it may indicate significant underlying pathology.
+* **Stress testing value:** Exercise-induced ischemic markers provide strong diagnostic signals and are essential for clinical decision-making.
+* **Severity assessment:** Vessel involvement and imaging-related features are valuable for staging disease severity and guiding treatment planning.
+
+Overall, the dataset supports the use of **combined demographic, functional, and diagnostic variables** for accurate cardiovascular risk assessment.
+
+---
+
+## ⚠️ Limitations
+
+* Some variables contain **missing or incomplete values**, particularly in diagnostic fields.
+* The dataset is observational and derived from specific clinical centers, which may limit generalizability.
+* Lifestyle factors (e.g., smoking, physical activity, diet) are not included, restricting comprehensive risk modeling.
+* Disease severity labels do not directly map to standardized clinical staging systems.
+

@@ -1,0 +1,4 @@
+Prompt_Type,Accuracy,Hallucination_Control,Clarity,Clinical_Relevance,Actionability
+Basic,2,3,3,3,2
+Role-Based,3,3,4,4,3
+Structured,4,4,5,4,4
